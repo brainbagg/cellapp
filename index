@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"  />
+
+<title>Mobile App</title>
+<!--
+<link rel="stylesheet"  href="css/jquery.mobile-1.3.1.css">
+<link rel="stylesheet"  href="css/jquery.mobile.theme-1.3.1.min.css">
+<script src="js/jquery.mobile-1.3.1.js"></script>
+<link rel="stylesheet" href="css/theme1.0.min.css" />
+<link rel="stylesheet" href="css/theme1.0.css" />
+-->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+
+<script src="jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+</head>
+<body>
+<div data-role="page">
+
+<div data-role="panel" id="mypanel" data-position="left" data-display="reveal">
+<h1>panel</h1>
+<a href="#myheader" data-rel="close" data-role="button" data-icon="grid">close</a>
+</div>
+
+<div data-role="panel" id="mypanel2" data-position="right" data-display="overlay" data-theme="a" style="background:">
+<h1>panel</h1>
+</div>
+
+
+<div data-role="header" id="myheader" data-theme="b">
+<img src="images/Catalyst.png" style="height:70px; width:auto;" />
+<h1 style="position:absolute; top:20px;"></h1>
+<div data-role="navbar" data-native-menu="true" data-theme="a">
+<ul>
+<li><a href="#" class="ui-btn-active" data-icon="home">one</a></li>
+<li><a href="#" data-icon="gear">two</a></li>
+<li><a href="#" data-icon="grid">three</a></li>
+<li><a href="#" data-icon="custom">four</a></li>
+<li><a href="#" data-icon="star">five</a></li>
+</div>
+</div>
+
+<div data-role="content" data-theme="b">
+
+<img src="images/cover1.jpg" style="width:100%; height:auto; "/>
+
+<a href="try1.php" data-rel="dialog" data-transition="pop"> 
+open</a>
+
+<span> Latitude : </span> <span id=lat></span> <br />
+
+<span> Longitude : </span> <span id=lng></span> <br />
+<a data-role=button id=btn>Display map</a>
+
+
+
+<div data-role="collapsible">
+<h3>open/ close</h3>
+<p>paragraph 1</p>
+<p>paragraph 1</p>
+<p>paragraph 1</p>
+</div>
+
+<div data-role="collapsible" data-collapsed="true">
+<h3>open/ close</h3>
+<p>paragraph 2</p>
+<p>paragraph 2</p>
+<p>paragraph 2</p>
+</div>
+
+<input type="range" max="100" min="10" id="range" value="30" />
+<div id="txt1"></div>
+
+<select data-role="slider">
+<option>on</option>
+<option>off</option>
+</select>
+
+<div data-role="controlgroup" data-type="horizontal">
+<label for="id1">one</label>
+<input type="checkbox" id="id1" name="one" />
+<label for="id2">one</label>
+<input type="radio" id="id2" name="two" />
+<label for="id3">one</label>
+<input type="checkbox" id="id3" name="three" />
+</div>
+
+<select data-native-menu="false" data-theme="c" multiple="multiple">
+<option>select...</option>
+<optgroup label="part1">
+<option>opt 0ne</option>
+<option>opt two</option>
+</optgroup>
+<optgroup label="part2">
+<option>opt three</option>
+<option>opt four</option>
+</optgroup>
+</select>
+
+<input type="button" value="ok" data-icon="home" data-iconpos="right" data-inline="true"/>
+<input type="button" value="text me" data-inline="true" />
+
+<div data-role="controlgroup" data-type="vertical">
+<a href="#" data-role="button" data-theme="b">ok</a>
+<a href="#" data-role="button">again</a>
+<a href="#" data-role="button">click here</a>
+</div>
+
+<a href="#mypanel" data-role="button" data-inline="true" data-transition="slide"><div>contents</div></a>
+<a href="#mypanel2" data-role="button" data-inline="true" data-transition="slide"><div>content2</div></a>
+<h4>list example</h4>
+<ul data-role="listview" data-filter="true" data-inset="true">
+<li data-role="list-divider">menu</li>
+<li><a href="#">example1</a></li>
+<li><a href="#win2">example2</a></li>
+<li><a href="#win">example3</a></li>
+</ul>
+
+<h3>list example 2</h3>
+<ul data-role="listview" data-inset="true" data-theme="b">
+<li><a href="#">
+<img src="img/1.jpg" />
+<h3>Image one</h3>
+<p>williams brain</p>
+<span class="ui-li-aside">NO preview</span>
+</a>
+</li>
+<li><a href="#">
+<img src="img/2.jpg" />
+<h3>Image two</h3>
+<p>williams brain</p>
+<span class="ui-li-count">NO preview</span>
+</a>
+</li>
+<li><a href="#">
+<img src="img/3.jpg" />
+<h3>Image three</h3>
+<p>williams brain</p>
+</a>
+</li>
+</ul>
+
+<a href="#" data-role="button">GO Tv</a>
+</div>
+
+<div data-role="footer" data-theme="b">
+<h1>footer</h1>
+<div data-role="navbar" data-native-menu="true" data-theme="a">
+<ul>
+<li><a href="#" class="ui-btn-active" data-icon="home">one</a></li>
+<li><a href="#" data-icon="gear">two</a></li>
+<li><a href="#" data-icon="grid">three</a></li>
+<li><a href="#" data-icon="custom">four</a></li>
+<li><a href="#" data-icon="star">five</a></li>
+</div>
+</div>
+
+
+</div>
+
+<!--page 2
+<div data-role="page" id="win2" data-dom-cache="true">
+<div data-role="header">
+<h1>window2</h1>
+</div>
+
+<div data-role="footer">
+<h1>window 2 footer</h1>
+</div>
+
+</div>
+-->
+
+<div data-role=page id=win2 data-add-back-btn=true>
+
+  <div data-role=header>
+
+    <h1>Window 2</h1>
+
+  </div>
+
+
+  <div data-role=content>
+
+  </div>
+
+</div>
+<body>
+</body>
+</html>
+
+ <script>
+$(document).bind("mobileinit", function() {
+  $.mobile.touchOverflowEnable=true;
+$("li").bind ("swiperight", function (event)
+{
+
+  $(this).remove ();
+
+});
+
+
+navigator.geolocation.getCurrentPosition (function (pos)
+
+{
+
+  var lat = pos.coords.latitude;
+
+  var lng = pos.coords.longitude;
+
+  $("#lat").text (lat);
+
+  $("#lng").text (lng);
+
+});
+
+
+$("#btn").bind ("click", function (event)
+
+{
+
+  var lat = $("#lat").text (lat);
+
+  var lng = $("#lng").text (lng);
+
+  var latlng = new google.maps.LatLng (lat, lng);
+
+  var options = { 
+
+    zoom : 15, 
+
+    center : latlng, 
+
+    mapTypeId : google.maps.MapTypeId.ROADMAP 
+
+  };
+
+  var $content = $("#win2 div:jqmData(role=content)");
+
+  $content.height (screen.height - 50);
+
+  var map = new google.maps.Map ($content[0], options);
+
+  $.mobile.changePage ($("#win2"));
+
+  
+
+  new google.maps.Marker ( 
+
+  { 
+
+    map : map, 
+
+    animation : google.maps.Animation.DROP,
+
+    position : latlng  
+
+  });  
+
+});
+
+});
+
+</script>
