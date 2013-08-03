@@ -316,7 +316,7 @@ Cellpad is a cell ministry application for effection effective cell management
 $('#sub_log').bind('click', function() {
 $.ajax({
 	type:"POST",
-	url: "login.php",
+	url: "http://cellapp.host56.com/login.php",
 	data:$('#login').serialize(),
 	success: function(data) {
 		$('#target_login').html(data).show;
@@ -335,7 +335,7 @@ var loc = "http://cellapp.host56.com/action.php";
 $('#sub_sign').bind('click', function() {
 $.ajax({
 	type:"POST",
-	url:"signup.php",
+	url:"http://cellapp.host56.com/signup.php",
 	data:$('#signup').serialize(),
 	success: function(data) {
 		$('#target_signup').html(data).show;
