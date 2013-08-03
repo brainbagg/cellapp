@@ -271,7 +271,6 @@
 
 
 
-var loc = "http://cellapp.host56.com/action.php";
 
 $('#sub').bind('click', function() {
 
@@ -279,12 +278,12 @@ $('#sub').bind('click', function() {
 
 $.ajax({
 	type:"POST",
-	url:loc,
+	url: "http://cellapp.host56.com/action.php",
 	data:$('#form').serialize(),
 	success: function(data) {
 		$('#target').html(data).show;
 		}
-});<strong></strong>
+});
 
 $.mobile.changePage("#dialog", {transition:'pop'});
 
