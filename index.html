@@ -15,15 +15,50 @@
 -->
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="crose-domain.js"></script>
+<script type="text/javascript" src="js/crose-domain.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 
 
 </head>
-<body>
-<div data-role="page" id="home">
+<body >
+
+<div data-role="page" id="index" style="background:url(images/cover5.jpg); background-size:cover;">
+
+<div data-role="header">
+<div data-role="navbar" data-native-menu="true">
+<ul>
+<li><a href="#log" data-transition="slide">Login</a></li>
+<li><a href="#about" data-transition="pop">Cellpad v1.10</a></li>
+<li><a href="#join" data-transition="slide">Signup</a></li>
+</ul>
+</div>
+</div>
+
+<div data-role="content">
+
+</div>
+
+</div>
+
+
+<div data-role="dialog" id="about">
+<div data-role="header">
+<h1>About App</h1>
+</div>
+
+<div data-role="content">
+<img src="images/Catalyst.png" />
+<br />
+Cellpad is a cell ministry application for effection effective cell management
+<a href="#index" data-role="button">Ok</a>
+</div>
+</div>
+
+
+
+<div data-role="page" id="log" data-add-back-btn="true" data-theme="b">
 
 <div data-role="panel" id="mypanel" data-position="left" data-display="reveal">
 <h1>panel</h1>
@@ -35,27 +70,44 @@
 </div>
 
 
-<div data-role="header" id="myheader" data-theme="b">
-<img src="images/Catalyst.png" style="height:70px; width:auto;" />
+<div data-role="header" id="myheader" data-theme="a">
+<h1>Login</h1>
 <h1 style="position:absolute; top:20px;"></h1>
-<div data-role="navbar" data-native-menu="true" data-theme="a" data-mini="true">
-<ul>
-<li><a href="#" class="ui-btn-active" data-icon="home">one</a></li>
-<li><a href="#" data-icon="gear">two</a></li>
-<li><a href="#" data-icon="grid">three</a></li>
-<li><a href="#" data-icon="custom">four</a></li>
-<li><a href="#" data-icon="star">five</a></li>
-</div>
+
 </div>
 
 <div data-role="content" data-theme="b" data-mini="true">
+<div data-role="fieldcontain">
+<ul data-role="listview">
+<li data-role="list-divider"  data-theme="b">Login</li>
+</ul>
+</div>
+<div id="target_login"></div>
+<form action="login.php" method="post" name="login" id="login" style="display:block;">
+<label for="username" id="username">Username</label>
+<input type="text" id="username" data-mini="true" name="username" />
+<label for="password" id="password">Password</label>
+<input type="password" id="password" data-mini="true" name="password" />
+<input type="button" value="Login" id="sub_log" data-mini="true"  />
+</form>
 
-<img src="images/cover11.jpg" style="width:100%; height:auto; "/>
+</div>
+</div>
 
+<div data-role="page" id="join"  data-add-back-btn="true">
 
+<div data-role="header" data-theme="a">
+<h1>Signup</h1>
+</div>
 
+<div data-role="content">
+<div data-role="fieldcontain">
+<ul data-role="listview">
+<li data-role="list-divider"  data-theme="b">Signup</li>
+</ul>
+</div>
 
-<form name="form" id="form" action="action.php" method="post">
+<form name="form" id="signup" action="action.php" method="post" style="display:block;">
 <label for="fna" data-theme="a">Firstname</label>
 <input type="text" id="fna" name="fna" data-theme="b" data-mini="true"/>
 <label for="lna" data-theme="a">lastname</label>
@@ -212,7 +264,7 @@
 <input type="text" name="user" id="user" data-theme="b" data-mini="true"/>
 <label for="pass" data-theme="a">Password</label>
 <input type="password" name="pass" id="pass" data-theme="b"data-mini="true" />
-<input type="button" data-theme="b" value="Submit" data-mini="true" id="sub" />
+<input type="button" data-theme="b" value="Submit" data-mini="true" id="sub_sign" />
 
 </form>
 
@@ -220,16 +272,8 @@
 
 </div>
 
-<div data-role="footer" data-theme="b">
-<h1>footer</h1>
-<div data-role="navbar" data-native-menu="true" data-theme="a">
-<ul>
-<li><a href="#" class="ui-btn-active" data-icon="home">one</a></li>
-<li><a href="#" data-icon="gear">two</a></li>
-<li><a href="#" data-icon="grid">three</a></li>
-<li><a href="#" data-icon="custom">four</a></li>
-<li><a href="#" data-icon="star">five</a></li>
-</div>
+<div data-role="footer" data-theme="a" data-position="fixed">
+<h1>Copyright</h1>
 </div>
 
 
@@ -258,8 +302,8 @@
 
 
   <div data-role=content>
-<div id="target"></div>
-<a href="#home" data-role="button">Close</a>
+<div id="target_signup"></div>
+<a href="#join" data-role="button">Ok</a>
   </div>
 
 </div>
@@ -269,19 +313,32 @@
 
 <script type="text/javascript">
 
-
-
-
-$('#sub').bind('click', function() {
-
-
-
+$('#sub_log').bind('click', function() {
 $.ajax({
 	type:"POST",
-	url: "http://cellapp.host56.com/action.php",
-	data:$('#form').serialize(),
+	url: "login.php",
+	data:$('#login').serialize(),
 	success: function(data) {
-		$('#target').html(data).show;
+		$('#target_login').html(data).show;
+		if($('#target_login').text() == 'welcome')
+		{
+		$.mobile.changePage('main.php', {transition: 'slideup'})	
+		}
+		}
+});
+
+});	
+
+
+var loc = "http://cellapp.host56.com/action.php";
+
+$('#sub_sign').bind('click', function() {
+$.ajax({
+	type:"POST",
+	url:"signup.php",
+	data:$('#signup').serialize(),
+	success: function(data) {
+		$('#target_signup').html(data).show;
 		}
 });
 
